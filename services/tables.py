@@ -3,7 +3,8 @@ from .exceptions import InfusionsoftAPIError
 
 
 def get_table(ifs, tablename, query={}, fields=[]):
-    print(f'Pulling {tablename}')
+    row_count = ifs.DataService('count', tablename, {})
+    print(f'Pulling {tablename}: {row_count} records')
     lookup_fields = []
     if not fields:
         lookup_fields += FIELDS[tablename][:]
