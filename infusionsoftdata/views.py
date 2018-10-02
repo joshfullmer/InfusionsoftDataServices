@@ -32,4 +32,4 @@ def slack(request):
 
 def auth_code(request):
     code = request.GET.get('code')
-    return render('code.html', code)
+    return render(request, 'code.html', {'code': code})
