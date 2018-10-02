@@ -31,4 +31,5 @@ urlpatterns = [
     path(
         'emailhistoryexport/',
         include('emailhistoryexport.urls', namespace='emailhistoryexport')),
+    path('code/', views.auth_code, name='auth_code'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

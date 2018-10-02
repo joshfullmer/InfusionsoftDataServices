@@ -28,3 +28,8 @@ def slack(request):
     return HttpResponse(
         json.dumps(response_data),
         content_type='application/json')
+
+
+def auth_code(request):
+    code = request.GET.get('code')
+    return render('code.html', code)
