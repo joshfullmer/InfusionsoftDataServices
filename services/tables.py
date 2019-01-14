@@ -1,8 +1,11 @@
+import datetime as dt
+
 from .constants import FIELDS
 from .exceptions import InfusionsoftAPIError
 
 
 def get_table(ifs, tablename, query={}, fields=[]):
+    now = dt.datetime.now()
     row_count = ifs.DataService('count', tablename, {})
     print(f'Pulling {tablename}: {row_count} records')
     lookup_fields = []
@@ -28,4 +31,5 @@ def get_table(ifs, tablename, query={}, fields=[]):
         table += table_page
         page += 1
     print(f'{tablename} returned {len(table)} records')
+    print(dt.datetime.now() - now)
     return table
